@@ -17,10 +17,10 @@ AdressSon DCD 0
 ;Section ROM code (read only) :		
 	area    moncode,code,readonly
 ; écrire le code ici	
-	export CallbackSon
+	EXPORT CallbackSon
 	export SortieSon
-	
-    import Son ;Adresse du tableau de sons
+	include  ../Driver/DriverJeuLaser.inc
+    extern Son ;Adresse du tableau de sons
 
 CallbackSon
 	
@@ -39,7 +39,7 @@ lire_son
 	adds r2, #32768
 	mov r4, #719
 	mul r2, r4
-	mov r4, #65535
+	mov r4, #65536
 	sdiv r2, r4
 	str r2, [r3] ; stock le son dans SortieSon
 	add r0, #2 ; incrémente de 16 bits

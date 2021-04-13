@@ -55,7 +55,7 @@ ARM Macro Assembler    Page 1
    39 00000012 F512 4200       adds             r2, #32768
    40 00000016 F240 24CF       mov              r4, #719
    41 0000001A FB02 F204       mul              r2, r4
-   42 0000001E F64F 74FF       mov              r4, #65535
+   42 0000001E F44F 3480       mov              r4, #65536
    43 00000022 FB92 F2F4       sdiv             r2, r4
    44 00000026 601A            str              r2, [r3]    ; stock le son dans
                                                              SortieSon

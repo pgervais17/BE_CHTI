@@ -20,10 +20,19 @@ AdressSon DCD 0
 	EXPORT CallbackSon
 	export SortieSon
 	include  ../Driver/DriverJeuLaser.inc
+	extern PWM_Set_Value_TIM3_Ch3
     extern Son ;Adresse du tableau de sons
+	export StartSon
+			
+StartSon
+    ldr r1, = AdressSon
+    mov r2, #0
+    str r2, [r1]
+    bx lr
+    
 
 CallbackSon
-	
+	push{lr}
 	ldr r1, =AdressSon
 	ldr r3, =SortieSon
 	ldr r0, [r1] ; r1 adresse du son, r0 valeur
@@ -32,6 +41,7 @@ CallbackSon
 	bne lire_son
 	ldr r0, =Son
 	b lire_son
+	
 		
 lire_son
 
@@ -45,6 +55,9 @@ lire_son
 	add r0, #2 ; incrémente de 16 bits
 	str r0, [r1] ; stock adresse son
 
-	bx lr
+	mov r0, r2
+	bl PWM_Set_Value_TIM3_Ch3
+	
+	pop{pc}
 	
 	END	

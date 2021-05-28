@@ -183,22 +183,22 @@ Image Symbol Table
 
     Symbol Name                              Value     Ov Type        Size  Object(Section)
 
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry10a.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry9b.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry9a.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry8b.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry8a.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry7b.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry7a.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry5.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry9a.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry9b.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry2.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry10a.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry10b.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry11b.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry11a.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry11b.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry10b.o ABSOLUTE
+    ../clib/microlib/longlong.c              0x00000000   Number         0  llshl.o ABSOLUTE
     ../clib/microlib/longlong.c              0x00000000   Number         0  llsshr.o ABSOLUTE
     ../clib/microlib/longlong.c              0x00000000   Number         0  llushr.o ABSOLUTE
-    ../clib/microlib/longlong.c              0x00000000   Number         0  llshl.o ABSOLUTE
     ../clib/microlib/stubs.s                 0x00000000   Number         0  iusefp.o ABSOLUTE
     ../fplib/microlib/d2f.c                  0x00000000   Number         0  d2f.o ABSOLUTE
     ../fplib/microlib/f2d.c                  0x00000000   Number         0  f2d.o ABSOLUTE
@@ -211,8 +211,8 @@ Image Symbol Table
     ../fplib/microlib/fpfix.c                0x00000000   Number         0  ffixui.o ABSOLUTE
     ../fplib/microlib/fpflt.c                0x00000000   Number         0  ffltui.o ABSOLUTE
     ../fplib/microlib/fpflt.c                0x00000000   Number         0  dfltui.o ABSOLUTE
-    ../fplib/microlib/fpmul.c                0x00000000   Number         0  dmul.o ABSOLUTE
     ../fplib/microlib/fpmul.c                0x00000000   Number         0  fmul.o ABSOLUTE
+    ../fplib/microlib/fpmul.c                0x00000000   Number         0  dmul.o ABSOLUTE
     ../fplib/microlib/fpscalb.c              0x00000000   Number         0  fscalb.o ABSOLUTE
     Lib\GPIO.c                               0x00000000   Number         0  gpio.o ABSOLUTE
     Lib\Timer_1234.c                         0x00000000   Number         0  timer_1234.o ABSOLUTE
@@ -260,10 +260,11 @@ Image Symbol Table
     i.__scatterload_null                     0x0800075e   Section        2  handlers.o(i.__scatterload_null)
     i.__scatterload_zeroinit                 0x08000760   Section       14  handlers.o(i.__scatterload_zeroinit)
     i.main                                   0x08000770   Section        0  principal.o(i.main)
-    moncode                                  0x0800079c   Section       80  dft.o(moncode)
-    Signal                                   0x0800080c   Section      128  signal.o(Signal)
-    Trigo                                    0x0800088c   Section      256  dft.o(Trigo)
-    TabCos                                   0x0800088c   Data           0  dft.o(Trigo)
+    moncode                                  0x0800079c   Section      108  dft.o(moncode)
+    Signal                                   0x08000828   Section      128  signal.o(Signal)
+    Trigo                                    0x080008a8   Section      256  dft.o(Trigo)
+    TabCos                                   0x080008a8   Data           0  dft.o(Trigo)
+    TabSin                                   0x08000928   Data           0  dft.o(Trigo)
     .data                                    0x20000000   Section      160  timer_1234.o(.data)
     Ptr_TIM1                                 0x20000010   Data           4  timer_1234.o(.data)
     Ptr_TIM2                                 0x20000014   Data           4  timer_1234.o(.data)
@@ -388,10 +389,10 @@ Image Symbol Table
     __scatterload_zeroinit                   0x08000761   Thumb Code    14  handlers.o(i.__scatterload_zeroinit)
     main                                     0x08000771   Thumb Code    34  principal.o(i.main)
     Calcul                                   0x0800079d   Thumb Code    62  dft.o(moncode)
-    DFT_ModuleAuCarre                        0x080007db   Thumb Code    14  dft.o(moncode)
-    Region$$Table$$Base                      0x080007ec   Number         0  anon$$obj.o(Region$$Table)
-    LeSignal                                 0x0800080c   Data           0  signal.o(Signal)
-    Region$$Table$$Limit                     0x0800080c   Number         0  anon$$obj.o(Region$$Table)
+    DFT_ModuleAuCarre                        0x080007db   Thumb Code    38  dft.o(moncode)
+    Region$$Table$$Base                      0x08000808   Number         0  anon$$obj.o(Region$$Table)
+    LeSignal                                 0x08000828   Data           0  signal.o(Signal)
+    Region$$Table$$Limit                     0x08000828   Number         0  anon$$obj.o(Region$$Table)
     Enable_Fct_IT_Compare_Match_TIM1_Voie1   0x20000000   Data           1  timer_1234.o(.data)
     Enable_Fct_IT_Compare_Match_TIM1_Voie2   0x20000001   Data           1  timer_1234.o(.data)
     Enable_Fct_IT_Compare_Match_TIM1_Voie3   0x20000002   Data           1  timer_1234.o(.data)
@@ -419,9 +420,9 @@ Memory Map of the image
 
   Image Entry point : 0x080000ed
 
-  Load Region LR_IROM1 (Base: 0x08000000, Size: 0x00000a2c, Max: 0x00020000, ABSOLUTE)
+  Load Region LR_IROM1 (Base: 0x08000000, Size: 0x00000a48, Max: 0x00020000, ABSOLUTE)
 
-    Execution Region ER_IROM1 (Exec base: 0x08000000, Load base: 0x08000000, Size: 0x0000098c, Max: 0x00020000, ABSOLUTE)
+    Execution Region ER_IROM1 (Exec base: 0x08000000, Load base: 0x08000000, Size: 0x000009a8, Max: 0x00020000, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
@@ -456,17 +457,17 @@ Memory Map of the image
     0x08000760   0x08000760   0x0000000e   Code   RO          213    i.__scatterload_zeroinit  mc_w.l(handlers.o)
     0x0800076e   0x0800076e   0x00000002   PAD
     0x08000770   0x08000770   0x0000002c   Code   RO            5    i.main              principal.o
-    0x0800079c   0x0800079c   0x00000050   Code   RO           64    moncode             dft.o
-    0x080007ec   0x080007ec   0x00000020   Data   RO          209    Region$$Table       anon$$obj.o
-    0x0800080c   0x0800080c   0x00000080   Data   RO            1    Signal              signal.o
-    0x0800088c   0x0800088c   0x00000100   Data   RO           65    Trigo               dft.o
+    0x0800079c   0x0800079c   0x0000006c   Code   RO           64    moncode             dft.o
+    0x08000808   0x08000808   0x00000020   Data   RO          209    Region$$Table       anon$$obj.o
+    0x08000828   0x08000828   0x00000080   Data   RO            1    Signal              signal.o
+    0x080008a8   0x080008a8   0x00000100   Data   RO           65    Trigo               dft.o
 
 
-    Execution Region RW_IRAM1 (Exec base: 0x20000000, Load base: 0x0800098c, Size: 0x000005a0, Max: 0x00005000, ABSOLUTE)
+    Execution Region RW_IRAM1 (Exec base: 0x20000000, Load base: 0x080009a8, Size: 0x000005a0, Max: 0x00005000, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
-    0x20000000   0x0800098c   0x000000a0   Data   RW          135    .data               DriverJeuLaser.lib(timer_1234.o)
+    0x20000000   0x080009a8   0x000000a0   Data   RW          135    .data               DriverJeuLaser.lib(timer_1234.o)
     0x200000a0        -       0x00000100   Zero   RW            6    .bss                principal.o
     0x200001a0        -       0x00000400   Zero   RW           69    STACK               startup-rvds.o
 
@@ -478,13 +479,13 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Object Name
 
-        80          4        256          0          0        372   dft.o
+       108          8        256          0          0        384   dft.o
         44         10          0          0        256       2504   principal.o
          0          0        128          0          0          0   signal.o
         76         20        236          0       1024        804   startup-rvds.o
 
     ----------------------------------------------------------------------
-       200         34        652          0       1280       3680   Object Totals
+       228         38        652          0       1280       3692   Object Totals
          0          0         32          0          0          0   (incl. Generated)
          0          0          0          0          0          0   (incl. Padding)
 
@@ -527,15 +528,15 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-      1792        202        652        160       1280       4220   Grand Totals
-      1792        202        652        160       1280       4220   ELF Image Totals
-      1792        202        652        160          0          0   ROM Totals
+      1820        206        652        160       1280       4232   Grand Totals
+      1820        206        652        160       1280       4232   ELF Image Totals
+      1820        206        652        160          0          0   ROM Totals
 
 ==============================================================================
 
-    Total RO  Size (Code + RO Data)                 2444 (   2.39kB)
+    Total RO  Size (Code + RO Data)                 2472 (   2.41kB)
     Total RW  Size (RW Data + ZI Data)              1440 (   1.41kB)
-    Total ROM Size (Code + RO Data + RW Data)       2604 (   2.54kB)
+    Total ROM Size (Code + RO Data + RW Data)       2632 (   2.57kB)
 
 ==============================================================================
 

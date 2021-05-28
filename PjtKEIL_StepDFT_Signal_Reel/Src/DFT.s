@@ -15,15 +15,14 @@
 ; ===============================================================================================
 	
 
-	export DFT_ModuleAuCarre
-	include  ../Driver/DriverJeuLaser.inc
-	export Calcul
+
 		
 ;Section ROM code (read only) :		
 	area    moncode,code,readonly
 ; écrire le code ici		
-	
-	
+	export DFT_ModuleAuCarre
+	include  ../Driver/DriverJeuLaser.inc
+	export Calcul
 
  
  
@@ -40,19 +39,19 @@ compare ; on vérifie si i != 64
 	b end_loop
 
 loop
-	push{r1}
+	push{r2}
 	push {r12}
-	mul r1, r1, r3 ; p=k*n
-	and r1, #63 ; modulo 64 
-	ldrsh r12, [r2, r1, LSL #1] ; Tabcos (p)
-	mov r1, r12
+	mul r2, r2, r3 ; p=k*n
+	and r2, #63 ; modulo 64 
+	ldrsh r12, [r1, r2, LSL #1] ; Tabcos (p)
+	mov r2, r12
 	ldrsh r12 , [r0, r3, LSL #1] ; x(n)
-	mul r12, r12 , r1  ;x(n) * Tabcos(p)
+	mul r12, r12 , r2  ;x(n) * Tabcos(p)
 	add r3, #1
-	mov r1, r12
+	mov r2, r12
 	pop {r12}
-	add r12, r1
-	pop {r1}
+	add r12, r2
+	pop {r2}
 	b compare
 	
 end_loop
@@ -61,19 +60,19 @@ end_loop
 	endp
 	
 DFT_ModuleAuCarre proc 
-	ldr r2,=TabCos
+	ldr r1,=TabCos
 	push {LR,r0}
 	bl Calcul 
 	mov r3, r0
 	pop {r0}
 	push {r3}
-	ldr r2,=TabSin
+	ldr r1,=TabSin
 	bl Calcul
 	mov r12 , r0 ; Im dans r12
 	pop{r3}
-	smull r1, r2, r3 , r3 ; Re^2
-	smlal r1, r2, r12 , r12; Re^2 +Im^2
-	mov r0, r2 ;
+	smull r2, r1, r3 , r3 ; Re^2
+	smlal r2, r1, r12 , r12; Re^2 +Im^2
+	mov r0, r1 ;
 	pop {PC}
 	
 	bx lr

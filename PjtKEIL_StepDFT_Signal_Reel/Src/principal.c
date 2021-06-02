@@ -13,11 +13,10 @@ void callback_Systick () {
 	
 	Wait_On_End_Of_DMA1();
 	
-	Stop_DMA1;
-	
 	for (char k=0;k<64; k++) {
-		Tab[k]=DFT_ModuleAuCarre (dma_buf, k); //dma_buff remplace LeSignal qui était juste pour les tests
+		Tab[k]=DFT_ModuleAuCarre(dma_buf, k); //dma_buff remplace LeSignal qui était juste pour les tests
 	}
+	Stop_DMA1;
 }
 
 int main(void)
@@ -30,7 +29,14 @@ int main(void)
 // Après exécution : le coeur CPU est clocké à 72MHz ainsi que tous les timers
 	CLOCK_Configure();
 	
-	//on active l'ADC en précisant la durée de prélevment du timer
+	Systick_Period_ff(Periode_Ticks);
+	Systick_Prio_IT(Prio, callback_Systick );
+	SysTick_On ;
+	SysTick_Enable_IT ;
+	
+	GPIO_Configure(GPIOA, 2, INPUT, ANALOG);
+	
+	//on active l'ADC en précisant la durée de prélevement du timer
 	Init_TimingADC_ActiveADC_ff(ADC1, 72);
 	
 	//on choisit la pin d'entrée (PA2)
@@ -40,18 +46,6 @@ int main(void)
 	Init_Conversion_On_Trig_Timer_ff(ADC1, TIM2_CC2, 225);
 	
 	Init_ADC1_DMA1( 0, dma_buf );
-	
-	Systick_Period_ff(Periode_Ticks);
-	
-	Systick_Prio_IT(Prio, callback_Systick );
-	
-	SysTick_On ;
-	
-	SysTick_Enable_IT ;
-	
-
-
-	
 	
 
 //============================================================================	

@@ -15,22 +15,22 @@
 ; ===============================================================================================
 	
 
-	export DFT_ModuleAuCarre
-	include  ../Driver/DriverJeuLaser.inc
-	export Calcul
+
 		
 ;Section ROM code (read only) :		
 	area    moncode,code,readonly
 ; écrire le code ici		
-	
+	export DFT_ModuleAuCarre
+	include  ../Driver/DriverJeuLaser.inc
+	export Calcul	
 	
 
  
  
 Calcul proc
 	 ; r0 -> k
-	 ; r1 -> adresse TabCos / TabSin
-	 ; r2 -> adresse LeSignal 
+	 ; r1 -> adresse LeSignal
+	 ; r2 -> adresse TabCos / TabSin
 	 mov r3, #0x00; ; r3 -> compteur n
 	 mov r12, #0x00; ; r12 -> resultat temporaire
  
